@@ -4,6 +4,7 @@ import 'colors'
 import morgan from 'morgan'
 import prisma from './prisma/prisma.js'
 import authRoutes from './app/auth/auth.routes.js'
+import userRoutes from './app/user/user.routes.js'
 import { errorHandler, notFound } from './app/middleware/error.middleware.js'
 
 const app = express()
@@ -13,6 +14,7 @@ async function main() {
 
 	app.use(express.json())
 	app.use('/api/auth', authRoutes)
+	app.use('/api/users', userRoutes)
 
 	app.use(notFound)
 	app.use(errorHandler)
