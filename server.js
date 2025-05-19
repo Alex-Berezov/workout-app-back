@@ -6,6 +6,7 @@ import prisma from './prisma/prisma.js'
 import authRoutes from './app/auth/auth.routes.js'
 import userRoutes from './app/user/user.routes.js'
 import exerciseRoutes from './app/exercise/exercise.routes.js'
+import workoutsRoutes from './app/workout/workout.routes.js'
 import path from 'path'
 import { errorHandler, notFound } from './app/middleware/error.middleware.js'
 
@@ -22,6 +23,7 @@ async function main() {
 	app.use('/api/auth', authRoutes)
 	app.use('/api/users', userRoutes)
 	app.use('/api/exercises', exerciseRoutes)
+	app.use('/api/workouts', workoutsRoutes)
 
 	app.use(notFound)
 	app.use(errorHandler)
